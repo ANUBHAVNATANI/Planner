@@ -1,19 +1,14 @@
 const express = require("express");
 const app = express();
+const clubRoutes = require("./routes/club");
 
 app.set("view engine", "ejs");
 
-app.get("/", function(req, res){
-    res.render("home");
-});
 
-app.get("/clubs", function(req, res){
-    res.render("index");
-});
+app.use(clubRoutes);
 
-app.get("/clubs/new", function(req, res){
-    res.render("new");
-});
+
+
 
 app.listen(3000, function(){
     console.log("Application has started!!");
