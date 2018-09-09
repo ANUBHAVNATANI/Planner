@@ -1,0 +1,22 @@
+{
+  "name": "planner",
+  "version": "1.0.0",
+  "description": "Smart planner for LNMIIT students",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sourabhtripathi/Planner.git"
+  },
+  "keywords": [
+    "P.L.A.N.N.E.R"
+  ],
+  "author": "sourabh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sourabhtripathi/Planner/issues"
+  },
+  "homepage": "https://github.com/Sourabhtripathi/Planner#readme"
+}
