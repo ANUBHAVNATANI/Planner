@@ -1,32 +1,42 @@
-const express = require("express"),
-	  app = express(),
-	  mongoose = require("mongoose"),
-      url = process.env.DATABASEURL || "mongodb://localhost/planner",
-      authRoutes = require("./routes/auth"),
-      passport = require("passport"),
-      cookieSession = require("cookie-session");
+const express = require('express');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+const authRoutes = require('./routes/auth-routes');
+const profileRoutes = require('./routes/profile-routes');
+const passportSetup = require('./config/passport-setup');
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
 
-mongoose.connect(url, {useNewUrlParser : true});
+const app = express();
 
-// App Config
-app.set("view engine", "ejs");
+// set view engine
+app.set('view engine', 'ejs');
 
+// set up session cookies
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
-    keys: ["gotisthebest", "friendsisthebest"]
+    keys: [keys.session.cookieKey]
 }));
 
-
-// initialise passport
+// initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-    res.locals.user = req.user;
-    next();
-});
-app.use(authRoutes);
 
-app.listen(3000, function(){
-    console.log("Application has started!!");
+// connect to mongodb
+mongoose.connect(keys.mongodb.dbURI, () => {
+    console.log('connected to mongodb');
+});
+
+// set up routes
+app.use('/auth', authRoutes);
+app.use('/profile', profileRoutes);
+
+// create home route
+app.get('/', (req, res) => {
+    res.render('home', { user: req.user });
+});
+
+app.listen(3000, () => {
+    console.log('app now listening for requests on port 3000');
 });
