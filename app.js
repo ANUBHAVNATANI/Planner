@@ -41,6 +41,13 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-app.listen(3000, () => {
-    console.log('app now listening for requests on port 3000');
-});
+
+if (url === "mongodb://localhost/planner"){
+	app.listen(3000, () => {
+	    console.log('app now listening for requests on port 3000');
+	});
+}else{
+	app.listen(process.env.PORT, process.env.IP, () => {
+	    console.log('app now listening for requests on port 3000');
+	});
+}
