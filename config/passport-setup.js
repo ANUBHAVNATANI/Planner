@@ -40,3 +40,5 @@ passport.use(
         });
     })
 );
+
+// passport.use(new googleStr({}, callbackURL))

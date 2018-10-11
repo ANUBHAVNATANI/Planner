@@ -6,6 +6,6 @@ module.exports = {
         clientSecret: 'bAaRmI0QWOZqKd1zMw-yzTle'
     },
     session: {
-        cookieKey: 'gotisthebest'
+        cookieKey: 'GOTisTheBest'
     }
 };
