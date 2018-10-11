@@ -8,12 +8,15 @@ const apiRoutes     = require('./routes/api');
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+const Bus = require('./models/bus');
 
 
 const url = process.env.DATABASEURL || "mongodb://localhost/planner";
 
 // connect to mongodb
 mongoose.connect(url, { useNewUrlParser: true });
+
+
 
 // set view engine
 app.set('view engine', 'ejs');
@@ -40,6 +43,29 @@ app.use('/api', apiRoutes);
 
 // create home route
 app.get('/', (req, res) => {
+	// Bus.create({
+	// 	name : "Monday to Saturday",
+	// 	collegeBus : [
+	// 		{
+	// 			time : "7:00 A.M",
+	// 			from : "Ajmeri Gate",
+	// 			to : "LNMIIT",
+	// 			busNo : 1
+	// 		},
+	// 		{
+	// 			time : "8:00 A.M",
+	// 			to : "Ajmeri Gate",
+	// 			from : "LNMIIT",
+	// 			busNo : 2
+	// 		}
+	// 	]
+	// }, (err, Bus) => {
+	// 	if(err){
+	// 		console.log(err);
+	// 	}else{
+	// 		console.log(Bus);
+	// 	}
+	// });
     res.render('home');
 });
 
