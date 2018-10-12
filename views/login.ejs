@@ -1,11 +1,31 @@
-<ul>
-    <% if (user) { %>
-    <li><a href="/auth/logout">Log out</a></li>
-    <% } else { %>
-    <li><a href="/auth/login">Login</a></li>
-    <% } %>
-    <li><a href="/">Homepage</a></li>
-    <li><a href="/profile">Profile</a></li>
-</ul>
-<h1>Login using...</h1>
-<a href="/auth/google">Google+</a>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Planner-Login</title>
+	<link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+	<div id="login">
+		<img src="dummy.PNG" class="in-progress">
+		<h1>Login</h1>
+		
+		<form>
+
+			 <input type="email" placeholder="  Email" name="email" class="in-progress"></label>
+			<br>
+			<input type="password" placeholder="  Password" name="password" class="in-progress"></label>
+			<button type="submit" id="login_button" class="in-progress"> Login </button>
+			<br> 
+			<a href="#" class="in-progress">Forgot Password?</a>	
+		</form>
+
+		<hr>
+		<button type="submit" class="in-progress">
+			Google+
+		</button>
+	</div>
+	
+
+	<script type="text/javascript" src="login.js"></script>
+</body>
+</html>
