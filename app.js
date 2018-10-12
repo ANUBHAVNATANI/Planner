@@ -17,6 +17,7 @@ const url = process.env.DATABASEURL || "mongodb://localhost/planner";
 mongoose.connect(url, { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({extended : true}));
+app.use(express.static(__dirname + "/public"));
 
 // set view engine
 app.set('view engine', 'ejs');

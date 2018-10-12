@@ -15,7 +15,7 @@ const authCheck = (req, res, next) => {
 
 router.get("/mess", authCheck,(req, res) => {
     User.findById({ _id: req.user.id }, (err, user) => {
-        if (user.year === "17" || user.year === "16") {
+        if (user.year === "18" || user.year === "16") {
             Mess.findOne({ name: "A" }, (err, mess) => {
                 res.render("mess", {mess : mess});
             });
