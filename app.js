@@ -4,11 +4,11 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
-const apiRoutes     = require('./routes/api');
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const Bus = require('./models/bus');
+const bodyParser = require("body-parser");
 
 
 const url = process.env.DATABASEURL || "mongodb://localhost/planner";
@@ -16,7 +16,7 @@ const url = process.env.DATABASEURL || "mongodb://localhost/planner";
 // connect to mongodb
 mongoose.connect(url, { useNewUrlParser: true });
 
-
+app.use(bodyParser.urlencoded({extended : true}));
 
 // set view engine
 app.set('view engine', 'ejs');
@@ -39,7 +39,6 @@ app.use((req, res, next) => {
 // set up routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
-app.use('/api', apiRoutes);
 
 // create home route
 app.get('/', (req, res) => {
