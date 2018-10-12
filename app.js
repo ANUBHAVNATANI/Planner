@@ -4,10 +4,11 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
-const apiRoutes     = require('./routes/api');
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+const Bus = require('./models/bus');
+const bodyParser = require("body-parser");
 
 
 const url = process.env.DATABASEURL || "mongodb://localhost/planner";
@@ -15,12 +16,14 @@ const url = process.env.DATABASEURL || "mongodb://localhost/planner";
 // connect to mongodb
 mongoose.connect(url, { useNewUrlParser: true });
 
+app.use(bodyParser.urlencoded({extended : true}));
+
 // set view engine
 app.set('view engine', 'ejs');
 
 // set up session cookies
 app.use(cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
+    maxAge: 1 * 60 * 60 * 1000,
     keys: [keys.session.cookieKey]
 }));
 
@@ -36,10 +39,32 @@ app.use((req, res, next) => {
 // set up routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
-app.use('/api', apiRoutes);
 
 // create home route
 app.get('/', (req, res) => {
+	// Bus.create({
+	// 	name : "Monday to Saturday",
+	// 	collegeBus : [
+	// 		{
+	// 			time : "7:00 A.M",
+	// 			from : "Ajmeri Gate",
+	// 			to : "LNMIIT",
+	// 			busNo : 1
+	// 		},
+	// 		{
+	// 			time : "8:00 A.M",
+	// 			to : "Ajmeri Gate",
+	// 			from : "LNMIIT",
+	// 			busNo : 2
+	// 		}
+	// 	]
+	// }, (err, Bus) => {
+	// 	if(err){
+	// 		console.log(err);
+	// 	}else{
+	// 		console.log(Bus);
+	// 	}
+	// });
     res.render('home');
 });
 
