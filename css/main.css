@@ -1,0 +1,29 @@
+.features .glyphicon {
+font-size: 32px;
+}
+body {
+   padding-top: 70px;
+   background-color: #4c9eecb0;
+  }
+.navbar-default {
+      background-color: #f5f5f5;
+  }
+  .footer {
+      background-color: whitesmoke;
+      border-color: #3a4552;
+      border-radius: 5px;
+  }
+  .inside{
+    padding-top: 2%;
+  }
+.newfont{
+font-family: 'Lato', sans-serif;
+}
+.inside{
+  color:inherit;
+  text-decoration: none;
+}
+.inside:hover{
+  text-decoration: none;
+  color:inherit;
+}
