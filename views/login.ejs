@@ -2,30 +2,42 @@
 <html>
 <head>
 	<title>Planner-Login</title>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
+	<link rel="stylesheet" type="text/css" href="login.css">
+	<link href="https://fonts.googleapis.com/css?family=Niramit" rel="stylesheet">	
+	<link rel="shortcut icon" href="favicon.ico">
+
 </head>
 <body>
-	<div id="login">
-		<img src="/stylesheets/dummy.PNG" class="in-progress">
-		<h1>Login</h1>
-		
-		<form>
-
-			 <input type="email" placeholder="  Email" name="email" class="in-progress"></label>
-			<br>
-			<input type="password" placeholder="  Password" name="password" class="in-progress"></label>
-			<button type="submit" id="login_button" class="in-progress"> Login </button>
-			<br> 
-			<a href="#" class="in-progress">Forgot Password?</a>	
-		</form>
-
-		<hr>
-		<a href="/auth/google"><button type="submit" class="in-progress" >
-			Google
+	<div id="login" id="div">
+		<div >
+				<img src="backkground.jpg" id="side">
+		</div>
+		<div>
 			
-		</button></a>
+			<form>
+				<img src="dummy.PNG" class="in-progress" id="user_image">
+				<h1>Login</h1>
+				 <!-- <input type="email" placeholder="  Email" name="email" class="in-progress"></label>
+				<br>
+				<input type="password" placeholder="  Password" name="password" class="in-progress"></label>
+				<button type="submit" id="login_button" class="in-progress"> Login </button>
+				<br> 
+				<a href="#" class="in-progress">Forgot Password?</a> -->
+				<a href="/auth/google">
+					<button  class="in-progress ripple" >
+						Student Login
+					
+					</button>
+				</a>
+				<a href="/auth/google">
+					<button  class="in-progress ripple" >
+						Faculty Login
+					</button>
+				</a>	
+			</form>
+			
+		</div>
 	</div>
-	
 
 	<script type="text/javascript" src="login.js"></script>
 </body>
