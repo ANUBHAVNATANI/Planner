@@ -20,7 +20,7 @@ passport.use(
         clientSecret: keys.google.clientSecret,
         callbackURL: '/auth/google/redirect'
     }, (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
+        //console.log(profile);
         // check if user already exists in our own db
         if(profile.emails[0].value.indexOf("@lnmiit.ac.in") !== -1){
             User.findOne({googleId: profile.id}).then((currentUser) => {
@@ -34,7 +34,7 @@ passport.use(
                         googleId: profile.id,
                         username: profile.displayName,
                         thumbnail: profile._json.image.url,
-                        year : profile.emails[0].value[0] + profile.emails[0].value[1]
+                        email: profile.emails[0].value
                     }).save().then((newUser) => {
                         //console.log('created new user: ', newUser);
                         done(null, newUser);
