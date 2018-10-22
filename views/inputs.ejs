@@ -3,9 +3,9 @@
 <head>
 	<title>Sync-Form</title>
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"><!-- Nunito -->	
-	<link rel="shortcut icon" href="/images/favicon.ico">
+	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<link rel="stylesheet" type="text/css" href="/stylesheets/inputs.css">
+	<link rel="stylesheet" type="text/css" href="inputs.css">
 
 </head>
 <body>
@@ -23,8 +23,16 @@
 
 			<h3>Clubs</h3>
 			<div class="clubs row">
+				<% clubs.forEach(function(club){ %>
+					<div class="col s12 m6 l4 element" >
+				      <label>
+				        <input id="indeterminate-checkbox" type="checkbox" class="btnn" />
+				        <span><%= club.name %></span>
+				      </label>
+			    	</div>
+				<% }); %>
 
-				<div class="col s12 m6 l4 element" >
+				<!--<div class="col s12 m6 l4 element" >
 			      <label>
 			        <input id="indeterminate-checkbox" type="checkbox" class="btnn" />
 			        <span>Art Club</span>
@@ -169,7 +177,7 @@
 			        <input id="indeterminate-checkbox" type="checkbox" class="btnn" />
 			        <span>None</span>
 			      </label>
-			    </div>
+			    </div> -->
 			</div>
 			<!-- <div class="flex-container">
 				<div class="container">
@@ -221,6 +229,6 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<script type="text/javascript" src="/javascript/inputs.js"></script>
+	<script type="text/javascript" src="inputs.js"></script>
 </body>
 </html>
